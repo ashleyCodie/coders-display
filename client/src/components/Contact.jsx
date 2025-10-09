@@ -6,6 +6,7 @@ import { ContactModal } from "@/components/ContactModal";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import GradientText from "./gradientText";
 import { Mail } from "lucide-react";
+import { Github, Linkedin, Download } from "lucide-react";
 
 const Contact = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -55,7 +56,7 @@ const Contact = () => {
             
             <div className="space-y-3">
               <a 
-                href="mailto:your.email@example.com" 
+                href="mailto:a.brooks9385@gmail.com" 
                 className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group"
               >
                 <Mail className="h-5 w-5 group-hover:scale-110 transition-transform" />
@@ -63,14 +64,48 @@ const Contact = () => {
               </a>
             </div>
 
-            <p className="text-gray-400 leading-relaxed">
+            <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+          <Button size="lg" variant="outlineWhite" asChild>
+            <a href="/AshleyBrooksTechResume.pdf" download>
+              <Download className="mr-2 h-5 w-5" />
+              Download Resume
+            </a>
+          </Button>
+
+          <div className="flex items-center gap-3">
+            <Button size="lg" variant="outlineWhite" asChild>
+              <a
+                href="https://github.com/ashleyCodie"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub Profile"
+              >
+                <Github className="h-5 w-5" />
+              </a>
+            </Button>
+
+            <Button size="lg" variant="outlineWhite" asChild>
+              <a
+                href="www.linkedin.com/in/ashley-brooks-257778362"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn Profile"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+            </Button>
+          </div>
+        </div>
+
+
+            <p className="text-white leading-relaxed">
               Based in Gilbert, Arizona. Available for freelance projects and full-time opportunities.
             </p>
           </div>
         </div>
 
-        <div className="text-center pt-8 border-t border-gray-800 text-white">
-          <p className="text-sm text-gray-400">
+        <div className="text-center pt-8 border-t border-white text-white">
+          <p className="text-sm text-white">
             © {new Date().getFullYear()} Ashley Brooks. Built with React, JavaScript, and
             Tailwind CSS.
           </p>

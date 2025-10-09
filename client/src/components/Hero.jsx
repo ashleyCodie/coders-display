@@ -3,20 +3,30 @@ import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Download } from "lucide-react";
 import BlurText from "./blurText";
 import GradientText from "./gradientText";
+import Ballpit from "./Ballpit";
 
 const Hero = () => {
   const [key, setKey] = useState(0);
 
   const handleAnimationComplete = () => {
-    // Wait a bit, then restart the animation
     setTimeout(() => {
       setKey((prevKey) => prevKey + 1);
-    }, 1000); // 1 second pause before restarting
+    }, 1000);
   };
 
   return (
-    <div className="bg-black h-screen flex items-center justify-center">
-      <div className="flex flex-col items-center px-4">
+    <div className="relative bg-black h-screen flex items-center justify-center overflow-hidden">
+      {/* Ballpit Background */}
+      <div className="absolute inset-0 w-full h-full">
+        <Ballpit 
+          followCursor={true}
+          count={150}
+          colors={[0x6b7280, 0xffffff, 0xa21caf, 0xffffff, 0x6b7280]}
+        />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center px-4">
         <BlurText
           key={key}
           text="Full Stack Web Developer"
@@ -35,14 +45,14 @@ const Hero = () => {
           Ashley Brooks
         </GradientText>
 
-        <p className="text-lg md:text-xl text-white max-w-2xl mx-auto text-balance leading-relaxed mb-8">
+        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto text-balance leading-relaxed mb-8">
           I build accessible, pixel-perfect digital experiences for the web.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
-          <Button size="lg" variant="outline" className="text-white" asChild>
+          <Button size="lg" variant="outline" asChild>
             <a href="/AshleyBrooksTechResume.pdf" download>
-              <Download className="mr-2 h-5 w-5 bg-white text-black" />
+              <Download className="mr-2 h-5 w-5" />
               Download Resume
             </a>
           </Button>
@@ -55,7 +65,7 @@ const Hero = () => {
                 rel="noopener noreferrer"
                 aria-label="GitHub Profile"
               >
-                <Github className="h-5 w-5 text-white " />
+                <Github className="h-5 w-5" />
               </a>
             </Button>
 
@@ -75,7 +85,7 @@ const Hero = () => {
         <div className="pt-12">
           <a
             href="#about"
-            className="inline-block text-sm text-white hover:text-white transition-colors"
+            className="inline-block text-lg text-black hover:text-purple-700 transition-colors"
           >
             Scroll to explore ↓
           </a>
