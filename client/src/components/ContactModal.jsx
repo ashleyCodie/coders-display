@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import {
   Dialog,
   DialogContent,
@@ -12,36 +13,51 @@ import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Label } from "@/components/ui/Label";
 import { Textarea } from "@/components/ui/Textarea";
-import { useToast } from "@/hooks/UseToast";  // Changed to lowercase 'u'
+import { useToast } from "@/hooks/UseToast";
 
 export const ContactModal = ({ open, onOpenChange }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();  // Changed to lowercase 'u'
+  const { toast } = useToast();
+
+  console.log("isSubmitting:", isSubmitting); // Debug log
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Form submitted, setting isSubmitting to true");
     setIsSubmitting(true);
 
-    const formData = new FormData(e.currentTarget);
-    const data = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      message: formData.get("message"),
-    };
+    try {
+      console.log("Sending email...");
+      await emailjs.sendForm(
+        "service_a688axl",
+        "template_zouuk1b",
+        e.target,
+        "M2msgr1ykfUWofbhq"
+      );
 
-    // Simulate email sending
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+      console.log("Email sent successfully");
+      toast({
+        title: "Message sent!",
+        description: "Thanks for reaching out. I'll get back to you soon.",
+      });
 
-    console.log("Contact form submitted:", data);
+      e.target.reset();
+      setIsSubmitting(false);
+      console.log("Reset isSubmitting to false");
+      onOpenChange(false);
+    } catch (error) {
+      console.error("Email error:", error);
 
-    toast({
-      title: "Message sent!",
-      description: "Thanks for reaching out. I'll get back to you soon.",
-    });
-
-    setIsSubmitting(false);
-    onOpenChange(false);
-    e.target.reset();
+      toast({
+        title: "Error sending message",
+        description:
+          "Something went wrong. Please try again or email me directly.",
+        variant: "destructive",
+      });
+      
+      setIsSubmitting(false);
+      console.log("Error occurred, reset isSubmitting to false");
+    }
   };
 
   return (
@@ -58,12 +74,12 @@ export const ContactModal = ({ open, onOpenChange }) => {
         <form onSubmit={handleSubmit} className="space-y-4 pt-4">
           <div className="space-y-2">
             <Label htmlFor="name">Name</Label>
-            <Input 
-              id="name" 
-              name="name" 
+            <Input
+              id="name"
+              name="name"
               type="text"
-              placeholder="Your name" 
-              required 
+              placeholder="Your name"
+              required
             />
           </div>
 
@@ -83,7 +99,7 @@ export const ContactModal = ({ open, onOpenChange }) => {
             <Textarea
               id="message"
               name="message"
-              placeholder="Tell me about your project..."
+              placeholder="Tell me about your project or job opportunity..."
               rows={5}
               required
             />
@@ -94,10 +110,15 @@ export const ContactModal = ({ open, onOpenChange }) => {
               type="button"
               variant="outline"
               onClick={() => onOpenChange(false)}
+              disabled={isSubmitting}
             >
               Cancel
             </Button>
-            <Button type="submit" disabled={isSubmitting}>
+            <Button
+              type="submit"
+              disabled={isSubmitting}
+              className="bg-purple-600 hover:bg-purple-700 text-white disabled:bg-gray-400 disabled:cursor-not-allowed"
+            >
               {isSubmitting ? "Sending..." : "Send Message"}
             </Button>
           </div>
@@ -106,4 +127,3 @@ export const ContactModal = ({ open, onOpenChange }) => {
     </Dialog>
   );
 };
-

@@ -46,7 +46,7 @@ const Hero = () => {
         </GradientText>
 
         <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto text-balance leading-relaxed mb-8">
-          I build accessible, pixel-perfect digital experiences for the web.
+          Passionate about creating intuitive digital experiences that just work.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
