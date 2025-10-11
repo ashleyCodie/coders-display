@@ -11,6 +11,16 @@ import  {Button}  from "@/components/ui/Button";
 import { ExternalLink } from "lucide-react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import BlurText from "./blurText";
+import LogoLoop from './LogoLoop';
+import { 
+  SiReact, 
+  SiNextdotjs, 
+  SiTypescript, 
+  SiTailwindcss,  
+  SiJavascript,
+  SiCss3,
+  SiHtml5,
+  SiRedux } from 'react-icons/si';
 
 const projects = [
   {
@@ -49,8 +59,33 @@ const Projects = () => {
     }, 1000); // 1 second pause before restarting
   };
 
+    const techLogos = [
+    { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
+    { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
+    { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
+    { node: <SiJavascript />, title: "JavaScript", href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+    { node: <SiCss3 />, title: "CSS3", href: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+    { node: <SiReact />, title: "React", href: "https://react.dev" },
+    { node: <SiHtml5 />, title: "HTML5", href: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
+    { node: <SiRedux />, title: "Redux", href: "https://redux.js.org" },
+  ];
+
   return (
     <section id="projects" className="py-20 px-4 bg-muted/30">
+      <div className="pt-12" style={{ height: '200px', position: 'relative', overflow: 'hidden'}}>
+        <LogoLoop
+          logos={techLogos}
+          speed={120}
+          direction="left"
+          logoHeight={48}
+          gap={40}
+          pauseOnHover
+          scaleOnHover
+          fadeOut
+          fadeOutColor="#d8b4fe"
+          ariaLabel="Technology partners"
+        />
+      </div>
       <div className="max-w-6xl mx-auto">
          <BlurText
           key={key}

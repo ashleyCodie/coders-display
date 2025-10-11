@@ -12,6 +12,8 @@ const About = () => {
     }, 1000); // 1 second pause before restarting
   };
 
+
+
   return (
     <section id="about" className="py-20  px-4 bg-purple-200">
       <div className="max-w-6xl mx-auto">
