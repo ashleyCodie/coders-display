@@ -15,9 +15,9 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative bg-black min-h-screen flex items-center justify-center overflow-hidden">
+    <div className="relative bg-black min-h-screen flex items-center justify-center">
       {/* Ballpit Background */}
-      <div className="absolute inset-0 w-full h-full">
+      <div className="absolute inset-0 w-full h-full pointer-events-none">
         <Ballpit 
           followCursor={true}
           count={150}
@@ -26,7 +26,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center px-4">
+      <div className="relative z-10 flex flex-col items-center px-4 py-20">
         <BlurText
           key={key}
           text="Full Stack Web Developer"
@@ -45,7 +45,7 @@ const Hero = () => {
           Ashley Brooks
         </GradientText>
 
-        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto text-balance leading-relaxed mb-8">
+        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto text-balance leading-relaxed mb-8 text-center">
           Passionate about creating intuitive digital experiences that just work.
         </p>
 
