@@ -13,7 +13,7 @@ const Contact = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section id="contact" className="relative py-20 px-4 bg-black overflow-hidden">
+    <section id="contact" className="relative py-20 px-4 bg-black">
       {/* Particles Background */}
       <div className="absolute inset-0 w-full h-full">
         <Particles
@@ -56,7 +56,7 @@ const Contact = () => {
 
         <div className="flex flex-col md:flex-row items-center gap-8 py-8">
           <div className="w-full md:w-1/2 flex justify-center">
-            <div className="relative h-80 w-64 rounded-lg overflow-hidden shadow-lg">
+            <div className="relative h-80 w-64 rounded-lg shadow-lg">
               <LazyLoadImage
                 src="/profile2.jpg"
                 alt="Ashley Brooks"

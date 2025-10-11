@@ -19,3 +19,20 @@ body {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+:root {
+  --primary: 147 51 234;
+  --primary-foreground: 255 255 255;
+  --secondary: 100 116 139;
+  --secondary-foreground: 255 255 255;
+  --destructive: 239 68 68;
+  --accent: 226 232 240;
+  --accent-foreground: 15 23 42;
+  --background: 255 255 255;
+  --ring: 147 51 234;
+}

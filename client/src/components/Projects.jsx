@@ -64,8 +64,8 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
-            <Card key={project.title} className="flex flex-col overflow-hidden">
-              <div className="relative h-48 w-full overflow-hidden bg-muted">
+            <Card key={project.title} className="flex flex-col">
+              <div className="relative h-48 w-full bg-muted">
                 <LazyLoadImage
                   src={project.image}
                   alt="description"
