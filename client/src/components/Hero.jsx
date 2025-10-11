@@ -15,7 +15,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative bg-black h-screen flex items-center justify-center overflow-hidden">
+    <div className="relative bg-black min-h-screen flex items-center justify-center overflow-hidden">
       {/* Ballpit Background */}
       <div className="absolute inset-0 w-full h-full">
         <Ballpit 
