@@ -7,36 +7,104 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/Card";
-import  {Button}  from "@/components/ui/Button";
+import { Button } from "@/components/ui/Button";
 import { ExternalLink } from "lucide-react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import BlurText from "./blurText";
-import LogoLoop from './LogoLoop';
-import { 
-  SiReact, 
-  SiNextdotjs, 
-  SiTypescript, 
-  SiTailwindcss,  
+import LogoLoop from "./LogoLoop";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
   SiJavascript,
   SiCss3,
   SiHtml5,
-  SiRedux } from 'react-icons/si';
+  SiRedux,
+} from "react-icons/si";
 
 const projects = [
   {
-    title: "PassItOn-Sponsorhub",
+    title: "Upcurve-Sponsorhub",
     description:
       "This project is a comprehensive fundraiser creation platform built with Next.js, React, TypeScript, and Tailwind CSS that allows users to create detailed fundraising campaigns. The system includes a multi-section form for collecting organization details, fundraising goals, location information, campaign stories with rich text formatting, and multiple image uploads. It features a professional preview page that displays all submitted information in a donor-friendly layout with progress tracking, campaign statistics, and designated areas for widget integration.",
-    image: "/sponsorhub.jpg",
-    tags: ["React", "Next.js", "TypeScript", "Stripe", "PostgreSQL", "TailwindCSS"],
+    image: "/upcurve.jpg",
+    tags: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Stripe",
+      "PostgreSQL",
+      "TailwindCSS",
+    ],
     github: "https://github.com/Banyan-Labs/pass-it-on-sponsorhub",
+  },
+  {
+    title: "Excel Floor Care",
+    description: (
+      <>
+        This professional website for Excel Floor Care showcases their grout,
+        tile, and carpet cleaning services in the Phoenix Metropolitan Area with
+        stunning before/after photo galleries and customer testimonials. The
+        modern, mobile-optimized design features animated elements, smooth
+        scrolling, and a contact form that makes it easy for customers to
+        request free demos and get quotes. Built with cutting-edge web
+        technology, the site loads fast and works seamlessly across all devices.{" "}
+        <a
+          href="https://www.excelfloorcare.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-purple-600 hover:text-purple-800 underline font-medium"
+        >
+          Visit Live Site
+        </a>
+      </>
+    ),
+    image: "/excel.jpg",
+    tags: ["React", "Vite", "Node.js", "TailwindCSS", "JavaScript"],
+    github: "https://github.com/ashleyCodie/excel-floor-care",
+  },
+  {
+    title: "Billy- Bill Management",
+    description: (
+      <>
+        Billy is a modern bill management application that helps you track all
+        your financial obligations in one place. Manage creditors, set up
+        recurring bills, and never miss a payment with automatic reminders and
+        calendar integration. The app features secure authentication, allowing
+        you to safely store bill credentials and access your data from any
+        device. Recurring bills automatically generate future instances,
+        ensuring you always know what's coming up. Built with Next.js and
+        Supabase for a fast, secure, and responsive experience across desktop
+        and mobile devices.
+        <a
+          href="https://billy-woad.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-purple-600 hover:text-purple-800 underline font-medium"
+        >
+          Visit Live Site
+        </a>
+      </>
+    ),
+    image: "/billy.jpg",
+    tags: ["React", "Vite", "Node.js", "TailwindCSS", "TypeScript", "Supabase"],
+    github: "https://github.com/ashleyCodie/billy",
   },
   {
     title: "ChaChing & Bling Shopping App",
     description:
       "ChaChing & Bling is a full-stack e-commerce web application that enables users to browse products, manage their shopping experience, and make purchases online. Users can create accounts, add items to their shopping cart for immediate purchase consideration, and save favorite products to a wishlist for future reference. The platform features secure authentication, a comprehensive product catalog with search and filtering capabilities, and persistent cart and favorites functionality across sessions.",
     image: "/ccb.jpg",
-    tags: ["React", "Node.js", "MongoDB", "TailwindCSS", "JavaScript", "ReduxTK", "Axios"],
+    tags: [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "TailwindCSS",
+      "JavaScript",
+      "ReduxTK",
+      "Axios",
+    ],
     github: "https://github.com/ashleyCodie/ChaChing-And-Bling",
   },
   {
@@ -44,13 +112,21 @@ const projects = [
     description:
       "For Orange, By Orange is a full stack web application that connects justice-impacted individuals with essential reentry resources like housing, employment, legal aid, and social services through a searchable, community-vetted directory. The platform enables peer-to-peer support through forums, mentorship matching, and private messaging, allowing users to build supportive networks with others who share similar experiences. Built with strong privacy protections and mobile-responsive design, it serves as both a practical resource hub and community space to reduce isolation and support successful reintegration.",
     image: "/fobo.jpg",
-    tags: ["React", "JavaScript", "API Integration", "TailwindCSS", "Axios", "ReduxTK", "MongoDB"],
+    tags: [
+      "React",
+      "JavaScript",
+      "API Integration",
+      "TailwindCSS",
+      "Axios",
+      "ReduxTK",
+      "MongoDB",
+    ],
     github: "https://github.com/ashleyCodie/For-Orange-By-Orange",
   },
 ];
 
 const Projects = () => {
-      const [key, setKey] = useState(0);
+  const [key, setKey] = useState(0);
 
   const handleAnimationComplete = () => {
     // Wait a bit, then restart the animation
@@ -59,20 +135,43 @@ const Projects = () => {
     }, 1000); // 1 second pause before restarting
   };
 
-    const techLogos = [
+  const techLogos = [
     { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
-    { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
-    { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
-    { node: <SiJavascript />, title: "JavaScript", href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
-    { node: <SiCss3 />, title: "CSS3", href: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+    {
+      node: <SiTypescript />,
+      title: "TypeScript",
+      href: "https://www.typescriptlang.org",
+    },
+    {
+      node: <SiTailwindcss />,
+      title: "Tailwind CSS",
+      href: "https://tailwindcss.com",
+    },
+    {
+      node: <SiJavascript />,
+      title: "JavaScript",
+      href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    },
+    {
+      node: <SiCss3 />,
+      title: "CSS3",
+      href: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    },
     { node: <SiReact />, title: "React", href: "https://react.dev" },
-    { node: <SiHtml5 />, title: "HTML5", href: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
+    {
+      node: <SiHtml5 />,
+      title: "HTML5",
+      href: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    },
     { node: <SiRedux />, title: "Redux", href: "https://redux.js.org" },
   ];
 
   return (
     <section id="projects" className="py-20 px-4 bg-muted/30">
-      <div className="pt-12" style={{ height: '200px', position: 'relative', overflow: 'hidden'}}>
+      <div
+        className="pt-12"
+        style={{ height: "200px", position: "relative", overflow: "hidden" }}
+      >
         <LogoLoop
           logos={techLogos}
           speed={120}
@@ -87,7 +186,7 @@ const Projects = () => {
         />
       </div>
       <div className="max-w-6xl mx-auto">
-         <BlurText
+        <BlurText
           key={key}
           text="Featured Projects"
           delay={150}
