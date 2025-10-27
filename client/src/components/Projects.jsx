@@ -50,14 +50,14 @@ const projects = [
         scrolling, and a contact form that makes it easy for customers to
         request free demos and get quotes. Built with cutting-edge web
         technology, the site loads fast and works seamlessly across all devices.{" "}
-        <a
+        {/* <a
           href="https://www.excelfloorcare.com/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-purple-600 hover:text-purple-800 underline font-medium"
         >
           Visit Live Site
-        </a>
+        </a> */}
       </>
     ),
     image: "/excel.jpg",
