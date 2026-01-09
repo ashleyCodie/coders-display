@@ -25,7 +25,7 @@ import {
 
 const projects = [
   {
-    title: "Upcurve-Sponsorhub",
+    title: "Upcurve",
     description:
       "This project is a comprehensive fundraiser creation platform built with Next.js, React, TypeScript, and Tailwind CSS that allows users to create detailed fundraising campaigns. The system includes a multi-section form for collecting organization details, fundraising goals, location information, campaign stories with rich text formatting, and multiple image uploads. It features a professional preview page that displays all submitted information in a donor-friendly layout with progress tracking, campaign statistics, and designated areas for widget integration.",
     image: "/upcurve.jpg",
@@ -38,6 +38,7 @@ const projects = [
       "TailwindCSS",
     ],
     github: "https://github.com/Banyan-Labs/pass-it-on-sponsorhub",
+    liveSite: "https://www.upcurve.life/",
   },
   {
     title: "Excel Floor Care",
@@ -209,6 +210,16 @@ const Projects = () => {
 
               <CardHeader>
                 <CardTitle className="text-xl">{project.title}</CardTitle>
+                {project.liveSite && (
+                  <a
+                    href={project.liveSite}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-purple-600 hover:text-purple-800 underline mt-1"
+                  >
+                    {project.liveSite}
+                  </a>
+                )}
                 <CardDescription className="leading-relaxed">
                   {project.description}
                 </CardDescription>
@@ -227,7 +238,23 @@ const Projects = () => {
                 </div>
               </CardContent>
 
-              <CardFooter>
+              <CardFooter className="flex flex-col gap-2">
+                {project.liveSite && (
+                  <Button
+                    variant="outline"
+                    className="w-full bg-transparent text-black"
+                    asChild
+                  >
+                    <a
+                      href={project.liveSite}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      Visit Live Site
+                    </a>
+                  </Button>
+                )}
                 <Button
                   variant="outline"
                   className="w-full bg-transparent text-black"
